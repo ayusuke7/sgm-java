@@ -1,8 +1,5 @@
 package View.Panels;
 
-import Controller.ControllerAtas;
-import Model.Ata;
-import View.Dialogs.Cadastros.DialogAtas;
 import View.Dialogs.Utils.DialogCards;
 import View.Dialogs.Utils.DialogLoading;
 import javax.swing.JFrame;
@@ -26,7 +23,7 @@ public class PanelCadastros extends javax.swing.JPanel {
 
         jPanel5 = new javax.swing.JPanel();
         panelMembros = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lbMembros = new javax.swing.JLabel();
         panelIgrejas = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         panelPatrimonios = new javax.swing.JPanel();
@@ -37,12 +34,12 @@ public class PanelCadastros extends javax.swing.JPanel {
         lbEventos = new javax.swing.JLabel();
         panelCargos = new javax.swing.JPanel();
         lbCargos = new javax.swing.JLabel();
-        panelCampanhas = new javax.swing.JPanel();
-        lbCargos5 = new javax.swing.JLabel();
         panelAtas = new javax.swing.JPanel();
         lbCargos2 = new javax.swing.JLabel();
         panelClasses = new javax.swing.JPanel();
-        lbCargos3 = new javax.swing.JLabel();
+        lbClasses = new javax.swing.JLabel();
+        panelCampanhas = new javax.swing.JPanel();
+        lbCargos5 = new javax.swing.JLabel();
         paneFuncionarios = new javax.swing.JPanel();
         lbCargos4 = new javax.swing.JLabel();
         panelContatos = new javax.swing.JPanel();
@@ -58,16 +55,16 @@ public class PanelCadastros extends javax.swing.JPanel {
         panelMembros.setBackground(new java.awt.Color(51, 217, 178));
         panelMembros.setPreferredSize(new java.awt.Dimension(220, 192));
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/icons8_Team_50px.png"))); // NOI18N
-        jLabel1.setText("Membros");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbMembros.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        lbMembros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbMembros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/icons8_Team_50px.png"))); // NOI18N
+        lbMembros.setText("Membros");
+        lbMembros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbMembros.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lbMembros.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lbMembros.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                lbMembrosMouseClicked(evt);
             }
         });
 
@@ -75,16 +72,16 @@ public class PanelCadastros extends javax.swing.JPanel {
         panelMembros.setLayout(panelMembrosLayout);
         panelMembrosLayout.setHorizontalGroup(
             panelMembrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMembrosLayout.createSequentialGroup()
+            .addGroup(panelMembrosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addComponent(lbMembros, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelMembrosLayout.setVerticalGroup(
             panelMembrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMembrosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbMembros, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -119,7 +116,7 @@ public class PanelCadastros extends javax.swing.JPanel {
             panelIgrejasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIgrejasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -153,7 +150,7 @@ public class PanelCadastros extends javax.swing.JPanel {
             panelPatrimoniosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPatrimoniosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -263,42 +260,8 @@ public class PanelCadastros extends javax.swing.JPanel {
 
         jPanel5.add(panelCargos);
 
-        panelCampanhas.setBackground(new java.awt.Color(255, 153, 153));
-
-        lbCargos5.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
-        lbCargos5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbCargos5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/icons8_Trust_50px.png"))); // NOI18N
-        lbCargos5.setText("Campanhas");
-        lbCargos5.setToolTipText("Cargos e Ministérios");
-        lbCargos5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lbCargos5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lbCargos5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        lbCargos5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbCargos5MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelCampanhasLayout = new javax.swing.GroupLayout(panelCampanhas);
-        panelCampanhas.setLayout(panelCampanhasLayout);
-        panelCampanhasLayout.setHorizontalGroup(
-            panelCampanhasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCampanhasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbCargos5, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        panelCampanhasLayout.setVerticalGroup(
-            panelCampanhasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCampanhasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbCargos5, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel5.add(panelCampanhas);
-
         panelAtas.setBackground(new java.awt.Color(255, 255, 204));
+        panelAtas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbCargos2.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
         lbCargos2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -335,17 +298,17 @@ public class PanelCadastros extends javax.swing.JPanel {
 
         panelClasses.setBackground(new java.awt.Color(153, 153, 255));
 
-        lbCargos3.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
-        lbCargos3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbCargos3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/icons8_Class_50px.png"))); // NOI18N
-        lbCargos3.setText("Classes");
-        lbCargos3.setToolTipText("Cargos e Ministérios");
-        lbCargos3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lbCargos3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lbCargos3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        lbCargos3.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbClasses.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        lbClasses.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbClasses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/icons8_Class_50px.png"))); // NOI18N
+        lbClasses.setText("Classes");
+        lbClasses.setToolTipText("Cargos e Ministérios");
+        lbClasses.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbClasses.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lbClasses.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lbClasses.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbCargos3MouseClicked(evt);
+                lbClassesMouseClicked(evt);
             }
         });
 
@@ -355,18 +318,53 @@ public class PanelCadastros extends javax.swing.JPanel {
             panelClassesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelClassesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbCargos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbClasses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelClassesLayout.setVerticalGroup(
             panelClassesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelClassesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbCargos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbClasses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jPanel5.add(panelClasses);
+
+        panelCampanhas.setBackground(new java.awt.Color(255, 153, 153));
+
+        lbCargos5.setFont(new java.awt.Font("Century Gothic", 1, 16)); // NOI18N
+        lbCargos5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbCargos5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/icons8_Trust_50px.png"))); // NOI18N
+        lbCargos5.setText("Campanhas");
+        lbCargos5.setToolTipText("Cargos e Ministérios");
+        lbCargos5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbCargos5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lbCargos5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lbCargos5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbCargos5MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelCampanhasLayout = new javax.swing.GroupLayout(panelCampanhas);
+        panelCampanhas.setLayout(panelCampanhasLayout);
+        panelCampanhasLayout.setHorizontalGroup(
+            panelCampanhasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCampanhasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbCargos5, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelCampanhasLayout.setVerticalGroup(
+            panelCampanhasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCampanhasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbCargos5, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel5.add(panelCampanhas);
 
         paneFuncionarios.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -433,7 +431,7 @@ public class PanelCadastros extends javax.swing.JPanel {
             panelContatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelContatosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbCargos1, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                .addComponent(lbCargos1, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -488,15 +486,15 @@ public class PanelCadastros extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void lbMembrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMembrosMouseClicked
         // TODO add your handling code here:
         new DialogLoading(new JFrame(), true, "Membros").setVisible(true);
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_lbMembrosMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
@@ -529,14 +527,13 @@ public class PanelCadastros extends javax.swing.JPanel {
 
     private void lbCargos2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCargos2MouseClicked
         // TODO add your handling code here:
-        Ata ata = new Ata();
-        DialogAtas atas = new DialogAtas(null, true, ata);
-        atas.setVisible(true);
+        new DialogLoading(new JFrame(), true, "Atas").setVisible(true);        
     }//GEN-LAST:event_lbCargos2MouseClicked
 
-    private void lbCargos3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCargos3MouseClicked
+    private void lbClassesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbClassesMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lbCargos3MouseClicked
+        new DialogLoading(new JFrame(), true, "Classes").setVisible(true);  
+    }//GEN-LAST:event_lbClassesMouseClicked
 
     private void lbCargos4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCargos4MouseClicked
         // TODO add your handling code here:
@@ -554,18 +551,18 @@ public class PanelCadastros extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lbCargos;
     private javax.swing.JLabel lbCargos1;
     private javax.swing.JLabel lbCargos2;
-    private javax.swing.JLabel lbCargos3;
     private javax.swing.JLabel lbCargos4;
     private javax.swing.JLabel lbCargos5;
     private javax.swing.JLabel lbCargos6;
+    private javax.swing.JLabel lbClasses;
     private javax.swing.JLabel lbEventos;
+    private javax.swing.JLabel lbMembros;
     private javax.swing.JLabel lbUsuarios;
     private javax.swing.JPanel paneFuncionarios;
     private javax.swing.JPanel panelAtas;

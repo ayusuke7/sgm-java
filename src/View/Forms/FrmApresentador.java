@@ -5,15 +5,18 @@
  */
 package View.Forms;
 
-import Utils.KeyMaps;
+import Model.Renderer.LinhaTableTextArea;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JRootPane;
+import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -40,10 +43,36 @@ public class FrmApresentador extends javax.swing.JFrame {
         jLabel1.setText(txt);
         
         this.setExtendedState(FrmApresentador.MAXIMIZED_BOTH);
-        //Acessibilidade();
-        
-        KeyMaps.Finalizar(this);
+        Acessibilidade();
 
+    }
+
+    private void Tabela() {
+//        LinhaTableTextArea linhas = new LinhaTableTextArea();
+//        linhas.setFonte(new Font(font.getName(), font.getStyle(), 28));
+//
+//        jTable1.getColumnModel().getColumn(0).setCellRenderer(linhas);
+//        jTable1.setBackground(fundo);
+//        jTable1.setGridColor(fundo);
+//        jTable1.setForeground(fonte);
+//
+//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+    }
+
+    private void Acessibilidade() {
+
+        JRootPane root = getRootPane();
+
+        root.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+                KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");
+
+        root.getActionMap().put("ESCAPE", new AbstractAction("ESCAPE") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")

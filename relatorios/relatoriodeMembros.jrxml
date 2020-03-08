@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioMembresia" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d1f88dfe-9c58-4521-acb9-db42b184d277">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="IdIgreja" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT Membros.Nome, Genero, EstadoCivil, Membros.Contatos,
+Cargo, Igrejas.Nome AS NomeIgreja, Cnpj, Pagina, Texto
+FROM Membros INNER JOIN Igrejas
+ON Membros.IdIgreja=Igrejas.Id
+WHERE Igrejas.Id=$P{IdIgreja}
+ORDER BY Membros.Nome]]>
+	</queryString>
+	<field name="Nome" class="java.lang.String"/>
+	<field name="Genero" class="java.lang.String"/>
+	<field name="EstadoCivil" class="java.lang.String"/>
+	<field name="Contatos" class="java.lang.String"/>
+	<field name="Cargo" class="java.lang.String"/>
+	<field name="NomeIgreja" class="java.lang.String"/>
+	<field name="Cnpj" class="java.lang.String"/>
+	<field name="Pagina" class="java.lang.String"/>
+	<field name="Texto" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="59" width="802" height="26" backcolor="#CCCCCC" uuid="30ba300e-007f-40e7-8f29-86f9b935466e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="58" uuid="c7b1c8e6-5695-4654-9ca0-a756585d9642"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="21" y="0" width="781" height="58" uuid="7bee94c2-14ba-4e4e-b47e-986135f5ecdf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Membros]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="21" y="59" width="763" height="25" forecolor="#333333" uuid="525e0418-484c-4c92-bf92-a3f6395a0354"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NomeIgreja}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="85" width="802" height="23" uuid="92567983-e32b-4f99-9d53-bc8ffb2fbc24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Texto}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="108" width="802" height="20" uuid="fb69e826-8c41-44b0-acbf-96b1e26a37e8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="465" y="107" width="83" height="20" uuid="32046fd6-8d79-4c3d-ad2c-1767747f5541"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado Civil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="548" y="108" width="165" height="18" uuid="d818d568-dc34-4bdd-8891-d02397368dc3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefones Cel / Fixo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="713" y="108" width="71" height="18" uuid="bf2fa565-ca7a-4d73-8121-18062af20a13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cargo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="109" width="319" height="18" uuid="ff0a6ea3-b97e-4cd7-b294-205a44c90747"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome Completo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="108" width="69" height="19" uuid="2eb75f5a-99e5-4a91-9dd1-4d20a788a654"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gênero]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="396" y="0" width="69" height="16" uuid="973366de-02a4-4a01-add3-8674b41f5f70"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Genero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="0" width="375" height="17" uuid="507d8ecf-0d03-4a87-87f0-f11facd26dd2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nome}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="27" width="802" height="1" uuid="013f2fa6-2797-4af0-aa95-359f3b5c2755"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="465" y="0" width="83" height="17" uuid="d45f5f1f-eb72-4aad-a1c5-5c256858108d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{EstadoCivil}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="548" y="0" width="165" height="17" uuid="734f3d80-147f-499e-b465-54b7907c85bb"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Contatos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="713" y="1" width="71" height="16" uuid="736bd23a-80f6-418d-9d49-f63654dbd2a0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Cargo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="210" y="26" width="95" height="15" uuid="d258c0bd-4dad-45ca-9a87-b0066016772b"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de Mulheres ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="388" y="11" width="125" height="15" uuid="2030e4be-1f0b-4eed-a905-1921aa5ea433"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de Congregados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="26" width="94" height="15" uuid="29a8ed63-5866-4d2b-a67f-db46e896e2d0"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de Membros ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="11" width="94" height="15" uuid="cb270695-f3ba-44ad-bea9-94f191d3f124"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de Pessoas ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="11" width="95" height="15" uuid="ec3fa99e-1d6e-425a-b7bb-18c77a42f17f"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de Homens ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="679" y="11" width="60" height="19" uuid="a5f3ff26-e99f-4d43-aa11-f9624cae0e78"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="739" y="12" width="35" height="18" uuid="726fe0eb-b8c3-475c-8970-bfcc1f070417"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="65" y="1" width="145" height="16" uuid="723774fa-a7d8-4120-8aef-1380bfe2d5a9"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cnpj}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="469" y="1" width="333" height="16" uuid="5e64218e-e590-443b-8d3e-3ccfcc624a96"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SGM, desenvolvido por AlexandreH. http://alexandrehenrique.esy.es/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="1" width="40" height="16" uuid="7ce1f9e9-332f-468a-903c-22cbcd251ccc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CNPJ :]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

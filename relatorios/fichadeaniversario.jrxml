@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fichadeaniversario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a7202e02-cfe2-4b6c-8b76-0a783553f89a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="75"/>
+	<parameter name="IdMembro" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT Membros.Nome AS NomeMembro,Igrejas.Nome AS NomeIgreja
+FROM Membros INNER JOIN Igrejas
+ON Membros.IdIgreja = Igrejas.Id
+WHERE Membros.Id = $P{IdMembro}]]>
+	</queryString>
+	<field name="NomeMembro" class="java.lang.String"/>
+	<field name="NomeIgreja" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="67" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="66" backcolor="#9999FF" uuid="17cd3287-2a3a-4ce6-9e44-00ddef4723a4"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="66" forecolor="#FFFFFF" uuid="822e1f3c-5a28-4fe2-b4e6-455fc8a6355b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Harlow Solid Italic" size="38" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Cartão de Aniversário]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="160" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="156" forecolor="#0000FF" uuid="9442b8ed-a785-4ff7-8f93-a9d6ab7d16b2"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="102" width="80" height="18" uuid="7f1243d9-d80c-44aa-a024-a5a0aef424fa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Em nome da]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="102" width="442" height="18" uuid="a83e6ae1-1ae7-4510-a4bd-928eb4f3ba91"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="14" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NomeIgreja}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="10" width="532" height="92" uuid="23ebcde6-aa13-4bed-9a07-fc5f10cc4d77"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Que o Senhor abençoe você mais e mais a cada ano que passa! Oramos para que você possa encontrar força, alegria e conforto diariamente na Bíblia.
+Deus demonstrou o quanto Ele nos ama quando nos presenteou com você. Que este ano lhe traga alegria, amor e amizade. E mais importante, que possa lhe levar mais perto do que Deus tem para a sua vida. Um doce e feliz aniversário para você!]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="147" y="133" width="395" height="23" uuid="f3914bfc-ad4a-4b45-acfb-41033f521cef"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NomeMembro}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="136" width="137" height="20" uuid="9d0eefa4-3efc-4898-9d90-dc387506bf89"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Feliz Aniversário]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="350" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="555" height="350" uuid="75789235-e8ab-43d0-b704-695accd96f2e"/>
+				<imageExpression><![CDATA[System.getProperty("user.dir")+"\\relatorios\\background.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="42" y="159" width="141" height="149" forecolor="#FFFFFF" backcolor="#000000" uuid="360b8e2e-a194-4bc8-b923-2e372b13bb53"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Chiller" size="23" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NomeMembro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="11" width="555" height="21" uuid="bc680f17-83d5-4bb8-bc60-d2bb5d186ea3"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="10" y="11" width="532" height="21" uuid="dbe620c5-0dfa-468c-86b8-d68955428248"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SGM, Gerenciamento de Membros para Igrejas desenvolvido por http://alexandrehenrique.esy.es/]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

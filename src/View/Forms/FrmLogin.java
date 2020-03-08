@@ -386,7 +386,6 @@ public class FrmLogin extends javax.swing.JDialog {
         getContentPane().add(panelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 400));
 
         lbBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/login.png"))); // NOI18N
         getContentPane().add(lbBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 400));
 
         setSize(new java.awt.Dimension(681, 402));

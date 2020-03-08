@@ -3,10 +3,13 @@ package View.Dialogs.Cadastros;
 import Controller.ControllerGenerico;
 import Controller.ControllerUsuarios;
 import Model.Renderer.CustomComboBox;
+import Utils.Propriedades;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Properties;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -28,8 +31,24 @@ public class DialogUsuarios extends javax.swing.JDialog {
         initComponents();
         controler = new ControllerGenerico();
         ListaUsuarios();
+        CarregarConfiguracoes();
     }
 
+    private void CarregarConfiguracoes() {
+
+        Properties propriedades = new Propriedades().loadProperties();
+        String barras = propriedades.getProperty("prop.cor.barras", "");
+        if (!barras.equals("")) {
+            Color cor = Color.decode("#" + barras);
+            jPanel1.setBackground(cor);
+            jToolBar2.setBackground(cor);
+            txtNome.setBackground(cor);
+            txtSenha.setBackground(cor);
+            txtDica.setBackground(cor);
+        }
+
+    }
+    
     private void ListaUsuarios() {
 
         String sql = "SELECT Id, Nome, Senha, Dica FROM Usuarios";
@@ -134,10 +153,13 @@ public class DialogUsuarios extends javax.swing.JDialog {
         jToolBar2.setRollover(true);
 
         btnSalvar.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalvar.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        btnSalvar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/icons8_Save_32px.png"))); // NOI18N
         btnSalvar.setText("Salvar");
+        btnSalvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         btnSalvar.setMaximumSize(new java.awt.Dimension(173, 40));
+        btnSalvar.setOpaque(false);
         btnSalvar.setPreferredSize(new java.awt.Dimension(173, 40));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,12 +172,15 @@ public class DialogUsuarios extends javax.swing.JDialog {
         jToolBar2.add(jLabel14);
 
         btnExcluir.setBackground(new java.awt.Color(255, 255, 255));
-        btnExcluir.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        btnExcluir.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/icons8_Minus_32px.png"))); // NOI18N
         btnExcluir.setText("Excluir");
+        btnExcluir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         btnExcluir.setEnabled(false);
         btnExcluir.setFocusable(false);
         btnExcluir.setMaximumSize(new java.awt.Dimension(173, 40));
+        btnExcluir.setOpaque(false);
         btnExcluir.setPreferredSize(new java.awt.Dimension(173, 40));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

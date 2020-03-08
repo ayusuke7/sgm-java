@@ -1,16 +1,16 @@
 package View.Dialogs.Utils;
 
-import Utils.Propriedades;
+import Model.Ata;
+import View.Dialogs.Cadastros.DialogAtas;
 import View.Dialogs.Cadastros.DialogPatrimonios;
 import View.Dialogs.Cadastros.DialogEventos;
 import View.Dialogs.Cadastros.DialogMembros;
 import View.Dialogs.Cadastros.DialogCargosMinst;
+import View.Dialogs.Cadastros.DialogClasses;
 import View.Dialogs.Cadastros.DialogIgrejas;
 import View.Dialogs.Cadastros.DialogUsuarios;
-import java.awt.Color;
 import java.awt.Frame;
-import java.util.Properties;
-import javax.swing.border.LineBorder;
+import javax.swing.JFrame;
 
 /**
  *
@@ -60,6 +60,16 @@ public final class DialogLoading extends javax.swing.JDialog {
                         dispose();
                         cargos.setVisible(true);
                         break;
+                    case "Atas":
+                        DialogAtas atas = new DialogAtas(null, true, new Ata());
+                        dispose();
+                        atas.setVisible(true);
+                        break;
+                    case "Classes":
+                        DialogClasses classes = new DialogClasses(new JFrame(), true);
+                        dispose();
+                        classes.setVisible(true);
+                        break;
                     default:
                         dispose();
                         break;
@@ -82,13 +92,13 @@ public final class DialogLoading extends javax.swing.JDialog {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 255), 2));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204), 2));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 102, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/loading.gif"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/ezgif.com-crop.gif"))); // NOI18N
         jLabel1.setText("Carregando");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setOpaque(true);
@@ -98,26 +108,22 @@ public final class DialogLoading extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

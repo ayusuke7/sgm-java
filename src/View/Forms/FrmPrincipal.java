@@ -23,8 +23,6 @@ import java.io.File;
 import java.util.Properties;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
 
@@ -146,13 +144,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
             DialogOptions opt = new DialogOptions(this, true);
             opt.setIconMessage("Deseja realizar o Backup antes de finalizar do Sistema?");
             opt.setVisible(true);
-            
-            if(opt.isConfirma()){
-                
+
+            if (opt.isConfirma()) {
+
             }
-            
+
         }
-        
+
         System.exit(0);
 
     }
@@ -186,7 +184,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         if (backup.equals("true")) {
             finalizar = 1;
         }
-                
+
         String menu = propriedades.getProperty("prop.home.menu", "false");
         if (menu.equals("true")) {
             Menu.setVisible(true);
@@ -559,6 +557,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lbRelatorios.setMaximumSize(new java.awt.Dimension(250, 45));
         lbRelatorios.setMinimumSize(new java.awt.Dimension(250, 45));
         lbRelatorios.setPreferredSize(new java.awt.Dimension(200, 40));
+        lbRelatorios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbRelatoriosMouseClicked(evt);
+            }
+        });
 
         lbFinanceiro.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         lbFinanceiro.setForeground(new java.awt.Color(255, 255, 255));
@@ -568,6 +571,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lbFinanceiro.setMaximumSize(new java.awt.Dimension(250, 45));
         lbFinanceiro.setMinimumSize(new java.awt.Dimension(250, 45));
         lbFinanceiro.setPreferredSize(new java.awt.Dimension(200, 40));
+        lbFinanceiro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbFinanceiroMouseClicked(evt);
+            }
+        });
 
         lbFerramentas.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         lbFerramentas.setForeground(new java.awt.Color(255, 255, 255));
@@ -586,6 +594,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lbConfiguracao.setMaximumSize(new java.awt.Dimension(250, 45));
         lbConfiguracao.setMinimumSize(new java.awt.Dimension(250, 45));
         lbConfiguracao.setPreferredSize(new java.awt.Dimension(200, 40));
+        lbConfiguracao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbConfiguracaoMouseClicked(evt);
+            }
+        });
 
         lbLogout.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         lbLogout.setForeground(new java.awt.Color(255, 255, 255));
@@ -595,6 +608,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lbLogout.setMaximumSize(new java.awt.Dimension(250, 45));
         lbLogout.setMinimumSize(new java.awt.Dimension(250, 45));
         lbLogout.setPreferredSize(new java.awt.Dimension(200, 40));
+        lbLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbLogoutMouseClicked(evt);
+            }
+        });
 
         lbSobre.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         lbSobre.setForeground(new java.awt.Color(255, 255, 255));
@@ -604,6 +622,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lbSobre.setMaximumSize(new java.awt.Dimension(250, 45));
         lbSobre.setMinimumSize(new java.awt.Dimension(250, 45));
         lbSobre.setPreferredSize(new java.awt.Dimension(200, 40));
+        lbSobre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbSobreMouseClicked(evt);
+            }
+        });
 
         lbCadastros.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         lbCadastros.setForeground(new java.awt.Color(255, 255, 255));
@@ -613,6 +636,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lbCadastros.setMaximumSize(new java.awt.Dimension(250, 45));
         lbCadastros.setMinimumSize(new java.awt.Dimension(250, 45));
         lbCadastros.setPreferredSize(new java.awt.Dimension(200, 40));
+        lbCadastros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbCadastrosMouseClicked(evt);
+            }
+        });
 
         lbInicio.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         lbInicio.setForeground(new java.awt.Color(255, 255, 255));
@@ -622,6 +650,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lbInicio.setMaximumSize(new java.awt.Dimension(250, 45));
         lbInicio.setMinimumSize(new java.awt.Dimension(250, 45));
         lbInicio.setPreferredSize(new java.awt.Dimension(200, 40));
+        lbInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbInicioMouseClicked(evt);
+            }
+        });
 
         lbImgUser.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         lbImgUser.setForeground(new java.awt.Color(255, 255, 255));
@@ -808,6 +841,44 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.dispose();
         new FrmLogin(this, true).setVisible(true);
     }//GEN-LAST:event_IcoLogoutMouseClicked
+
+    private void lbInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbInicioMouseClicked
+        // TODO add your handling code here:
+        MostrarPainel("Inicio");
+    }//GEN-LAST:event_lbInicioMouseClicked
+
+    private void lbCadastrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCadastrosMouseClicked
+        // TODO add your handling code here:
+        MostrarPainel("Cadastros");
+    }//GEN-LAST:event_lbCadastrosMouseClicked
+
+    private void lbFinanceiroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbFinanceiroMouseClicked
+        // TODO add your handling code here:
+        MostrarPainel("Financeiro");
+    }//GEN-LAST:event_lbFinanceiroMouseClicked
+
+    private void lbRelatoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbRelatoriosMouseClicked
+        // TODO add your handling code here:
+        MostrarPainel("Relatórios");
+    }//GEN-LAST:event_lbRelatoriosMouseClicked
+
+    private void lbConfiguracaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbConfiguracaoMouseClicked
+        // TODO add your handling code here:
+        DialogConfiguracoes();
+    }//GEN-LAST:event_lbConfiguracaoMouseClicked
+
+    private void lbLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLogoutMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        new FrmLogin(this, true).setVisible(true);
+    }//GEN-LAST:event_lbLogoutMouseClicked
+
+    private void lbSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSobreMouseClicked
+        // TODO add your handling code here:
+        MostrarPainel("Sobre");
+        DialogSobre sobre = new DialogSobre(null, true);
+        sobre.setVisible(true);
+    }//GEN-LAST:event_lbSobreMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Base;

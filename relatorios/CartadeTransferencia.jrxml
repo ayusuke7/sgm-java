@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CartadeTransferencia" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="799e13e0-3e55-450c-82fb-ac31ae13bc35">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="233"/>
+	<parameter name="IdMembro" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT Membros.Nome, Cargo, Texto,
+Igrejas.Nome AS NomeIgreja,
+Igrejas.Contatos AS IgrejaContatos, Cnpj
+FROM Membros INNER JOIN Igrejas
+ON Membros.IdIgreja = Igrejas.Id
+WHERE Membros.Id = $P{IdMembro}]]>
+	</queryString>
+	<field name="Nome" class="java.lang.String"/>
+	<field name="Cargo" class="java.lang.String"/>
+	<field name="Texto" class="java.lang.String"/>
+	<field name="NomeIgreja" class="java.lang.String"/>
+	<field name="IgrejaContatos" class="java.lang.String"/>
+	<field name="Cnpj" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="133" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="68" width="555" height="26" backcolor="#CCCCCC" uuid="7d4c65e1-8aa3-4e9d-9967-41f7406c3304"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="10" width="555" height="58" uuid="0efedaa7-3a01-4dd3-b2aa-932b749d1fb0"/>
+			</rectangle>
+			<textField>
+				<reportElement x="13" y="68" width="531" height="26" uuid="4ce7b699-0850-4782-876a-8700c31445f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NomeIgreja}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="10" width="533" height="58" uuid="1fc160ea-e932-4ac8-bdde-ca35e43af7d6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Carta de Transferência]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="94" width="555" height="20" uuid="36a005fb-e208-4e4d-b673-12de4ea05b99"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Texto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="555" height="38" uuid="168daa04-21c0-440b-8d90-b59e47ed8e3b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Carta de Recomendação de Membro]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="350" splitType="Stretch">
+			<staticText>
+				<reportElement x="34" y="1" width="276" height="20" uuid="b4707789-0741-4ae3-b3e4-a3904007602d"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Prezados(as) irmãos(ãs), pastores e demais da ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="310" y="20" width="235" height="1" uuid="bfda2d94-fd90-4c7f-98f5-35fa3693bf75"/>
+			</line>
+			<staticText>
+				<reportElement x="34" y="32" width="510" height="20" uuid="65a2caae-3d08-4760-bdc1-e3170a8c937d"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[é com grande satisfação que apresentamos a vossa igreja, através desta, a vida do nosso(a)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="153" y="65" width="392" height="20" uuid="0c777816-fb30-4b91-8b90-5f4a1bfc7bc5"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="34" y="95" width="510" height="20" uuid="026da075-9150-4ef3-86a4-3012f736b337"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[E vos informa-los, da situação Ativa, estando assim de acordo com os principios biblicos e]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="126" width="511" height="20" uuid="d339cbce-802a-40d7-b349-1e033f9f2380"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[doutrinários da nossa denominação, podendo assim, atuar na obra de Cristo Jesus, nesta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="159" width="510" height="20" uuid="9bfdb24b-aa47-40cd-b79f-eeff3c01681a"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[estimada Igreja, no presente dia       ____  /  ___  /  _____.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="210" width="501" height="20" uuid="798ed606-72a3-4de9-a8f8-750c691c32c8"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Desde de já agradecemos, e que Deus os abençoe.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="296" width="217" height="20" uuid="8923721a-0b5f-4843-896b-30ae385de677"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Secretário(a)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="44" y="294" width="217" height="1" uuid="2fb0a5ba-e817-4354-9d8d-476a6ad989ed"/>
+			</line>
+			<staticText>
+				<reportElement x="327" y="297" width="217" height="20" uuid="2a55b562-dc81-4f67-b92c-6f627c34c099"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pastor]]></text>
+			</staticText>
+			<line>
+				<reportElement x="327" y="295" width="217" height="1" uuid="a83e7612-2c1f-40f9-962f-7415fd089109"/>
+			</line>
+			<staticText>
+				<reportElement x="34" y="65" width="119" height="20" uuid="e33cb839-cc9c-4c1e-b6dc-9172188545c9"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[querido(a) irmão(a)]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="47" splitType="Stretch">
+			<line>
+				<reportElement x="-2" y="13" width="555" height="1" uuid="c9901aba-fa51-43ab-8520-a6b38e3feff0"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="327" y="14" width="225" height="16" uuid="81af803d-ebbb-449e-8996-f5218074f09a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SGM, Sistema para Igrejas desenvolvido por AlexandreH. http://alexandrehenrique.esy.es/]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="34" y="15" width="95" height="15" uuid="1bb28142-c8aa-42ef-8467-f943480f07d8"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cnpj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="174" y="13" width="153" height="15" uuid="0f19e4d9-b87d-4b1d-8233-4e0583bd20a5"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IgrejaContatos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="15" width="34" height="15" uuid="f1568e69-725c-4a03-88e3-169cf2785b2c"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CNPJ :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="129" y="13" width="34" height="15" uuid="59dfbb49-6741-45b3-9f44-ba1e0afe851b"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contatos :]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>
