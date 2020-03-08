@@ -1,0 +1,5 @@
+ 15:00:56 - D:\Documents\NetBeansProjects\JAVASE\SGM\Relatorios\modelo_ata (O sistema não pode encontrar o arquivo especificado)
+ 15:01:14 - D:\Documents\NetBeansProjects\JAVASE\SGM\Relatorios\modelo_ata (O sistema não pode encontrar o arquivo especificado)
+ 16:25:38 - UCAExc:::4.0.2 unknown token: 
+ 16:31:33 - UCAExc:::4.0.2 user lacks privilege or object not found: CARGOS
+ 16:35:58 - UCAExc:::4.0.2 Column not found: Id

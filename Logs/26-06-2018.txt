@@ -1,0 +1,1 @@
+ 10:09:27 - UCAExc:::4.0.2 user lacks privilege or object not found: MASCULINO

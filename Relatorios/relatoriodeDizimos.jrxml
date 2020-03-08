@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatoriodeMembros" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c53a2bbf-c943-4654-b74b-df50e0b6703c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="IdIgreja" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MesRef" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT Dizimos.Id, Membros.Nome, MesRef,
+Dizimo, Oferta, Igrejas.Nome AS NomeIgreja,
+Texto, Cnpj, Igrejas.Contatos
+FROM (Dizimos INNER JOIN Membros
+ON Dizimos.IdMembro = Membros.Id)
+INNER JOIN Igrejas
+ON Dizimos.IdIgreja = Igrejas.Id
+WHERE Dizimos.IdIgreja= $P{IdIgreja}]]>
+	</queryString>
+	<field name="Id" class="java.lang.Integer"/>
+	<field name="Nome" class="java.lang.String"/>
+	<field name="MesRef" class="java.lang.String"/>
+	<field name="Dizimo" class="java.lang.String"/>
+	<field name="Oferta" class="java.lang.String"/>
+	<field name="NomeIgreja" class="java.lang.String"/>
+	<field name="Texto" class="java.lang.String"/>
+	<field name="Cnpj" class="java.lang.String"/>
+	<field name="Contatos" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="130" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="59" width="555" height="27" backcolor="#CCCCCC" uuid="59f36c18-ceab-40c7-8b0f-398e8df21665"/>
+			</rectangle>
+			<textField>
+				<reportElement x="1" y="61" width="551" height="25" forecolor="#333333" uuid="cb1b81ed-e043-44d2-8fe4-b29366b77058"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NomeIgreja}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="1" width="555" height="58" uuid="7950a79b-b168-4296-8edd-ca5060621bd7"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="21" y="2" width="533" height="58" uuid="1df1a2f0-2536-46a7-8d3d-8d030f94a045"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Dízimos e Ofertas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="86" width="553" height="20" uuid="0d2b3664-1195-4f21-8867-6d27c7e6caa3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Texto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="106" width="235" height="24" uuid="a096c77c-ec1f-4d60-8eb4-f55719aec910"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Relatório:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="0" width="554" height="20" uuid="a93b15cb-21c7-48d4-81c0-a143eaceff6a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="1" y="0" width="52" height="19" uuid="f0c5d7d1-9384-4484-b9c1-519f829af63d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="459" y="0" width="93" height="19" uuid="339b8db4-1ae0-4d6a-b6ba-2f0dc711f98f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Oferta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="0" width="71" height="19" uuid="4faedb4a-032a-4ed9-9132-35fbab1f0dc4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mês / Ref.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="53" y="0" width="242" height="19" uuid="f320ab2c-7725-44e1-a12a-1719977aefec"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="366" y="0" width="91" height="19" uuid="7cbaccae-308e-4774-8a50-e2477498a1eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dízimo]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="20" width="554" height="1" uuid="88b2a604-9adf-454c-8b62-897043d10940"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="1" y="0" width="52" height="20" uuid="9f4cee8e-50c0-4b04-9caf-355e33c86ee4"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{Id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="0" width="242" height="20" uuid="93b20f0e-324e-4a23-83da-ec1271646bbc"/>
+				<textFieldExpression><![CDATA[$F{Nome}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="366" y="0" width="93" height="20" uuid="63653767-3dac-4675-bf1a-aa032dfdb66b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Dizimo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="0" width="93" height="20" uuid="b188eed5-5174-4952-884d-54de2a176d95"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Oferta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="0" width="73" height="20" uuid="17db3652-e5b4-4dcb-9e2f-58717953dfc3"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MesRef}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="84" splitType="Stretch">
+			<textField>
+				<reportElement x="459" y="12" width="67" height="20" uuid="397eba81-cb9f-4558-a069-c9ba7b2ca466"/>
+				<textElement textAlignment="Right" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="526" y="12" width="26" height="20" uuid="58db36ea-bd76-42b5-bba8-a66f2351ec3b"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="32" width="554" height="50" uuid="07e363ef-84f0-4342-b842-302808918761"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA["Trazei todos os dízimos à casa do tesouro, para que haja mantimento na minha casa, e depois fazei prova de mim, diz o Senhor dos exércitos, se eu não vos abrir as janelas do céu, e não derramar sobre vós tal bênção, que dela vos advenha a maior abastança." Malaquias 3: 10.]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="327" y="2" width="225" height="16" uuid="15551e0e-4496-42cb-a785-f61eb0f24ed1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SGM, Sistema para Igrejas desenvolvido por AlexandreH. http://alexandrehenrique.esy.es/]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="37" y="3" width="109" height="15" uuid="27bc7e26-8ef9-49dc-845d-0532d11dc8ff"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cnpj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="2" width="162" height="15" uuid="714c6b55-6232-4324-8b05-17a358570ed7"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Contatos}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="93536e03-eeec-43db-ab81-79ed7225876b"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="2" width="36" height="15" uuid="10855820-4da2-4143-8792-615e9159570e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CNPJ: ]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="21"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatoriodeMembros" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c53a2bbf-c943-4654-b74b-df50e0b6703c">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="IdIgreja" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MesRef" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM Eventos]]>
+	</queryString>
+	<field name="Id" class="java.lang.Integer"/>
+	<field name="Nome" class="java.lang.String"/>
+	<field name="Data" class="java.lang.String"/>
+	<field name="Hora" class="java.lang.String"/>
+	<field name="Descricao" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="88" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="59" width="555" height="27" backcolor="#CCCCCC" uuid="59f36c18-ceab-40c7-8b0f-398e8df21665"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="1" width="555" height="58" uuid="7950a79b-b168-4296-8edd-ca5060621bd7"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="21" y="2" width="533" height="58" uuid="1df1a2f0-2536-46a7-8d3d-8d030f94a045"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Eventos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="59" width="53" height="26" uuid="a8595b98-6d74-4e07-a533-bb507156e330"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Periodo:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="105" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="104" width="554" height="1" uuid="88b2a604-9adf-454c-8b62-897043d10940"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="11" y="12" width="88" height="74" uuid="a93b15cb-21c7-48d4-81c0-a143eaceff6a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="110" y="10" width="59" height="14" uuid="429e1242-4f5c-43d5-85fc-de22fef1cdbb"/>
+				<textElement>
+					<font fontName="Century Gothic" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Evento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="41" width="59" height="14" uuid="4eee3177-1776-4ab6-a7c2-0869f897b41d"/>
+				<textElement>
+					<font fontName="Century Gothic" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data/Hora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="41" width="15" height="14" uuid="2ca5127f-986c-4542-9c2d-bf85a9f7a2a1"/>
+				<textElement>
+					<font fontName="Century Gothic" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[às]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="70" width="59" height="14" uuid="29d8039e-3ad0-4526-9b42-4709e1f33a78"/>
+				<textElement>
+					<font fontName="Century Gothic" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descição:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="169" y="10" width="357" height="20" uuid="1f59ca65-68cc-44ca-ab3d-a31b3cce072a"/>
+				<textFieldExpression><![CDATA[$F{Nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="41" width="99" height="20" uuid="8276c44c-f022-4358-ac0b-4227806d5691"/>
+				<textFieldExpression><![CDATA[$F{Data}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="41" width="55" height="20" uuid="e21b6bdf-9540-42c2-82e1-a59e0be9c55b"/>
+				<textFieldExpression><![CDATA[$F{Hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="70" width="357" height="26" uuid="d7122d14-8b95-4522-ab83-65b36b91d50a"/>
+				<textFieldExpression><![CDATA[$F{Descricao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="459" y="12" width="67" height="20" uuid="397eba81-cb9f-4558-a069-c9ba7b2ca466"/>
+				<textElement textAlignment="Right" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="526" y="12" width="26" height="20" uuid="58db36ea-bd76-42b5-bba8-a66f2351ec3b"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="327" y="2" width="225" height="16" uuid="15551e0e-4496-42cb-a785-f61eb0f24ed1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SGM, Sistema para Igrejas desenvolvido por AlexandreH. http://alexandrehenrique.esy.es/]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="93536e03-eeec-43db-ab81-79ed7225876b"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="21"/>
+	</summary>
+</jasperReport>
